@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS feedback;
+
+CREATE TABLE feedback
+(
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255),
+  url VARCHAR(255),
+  text0 VARCHAR(300)
+);
