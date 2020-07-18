@@ -1,12 +1,13 @@
 <div class="newMain">
-    <% gifs.forEach (data => { %>
+
+    <% meme.forEach (data => { %>
+
     <section>
         <li>
             <div class="container">
                 <form name="data" method="post" action="/save">
-                    <img src='<%= data.url%>' alt="Avatar" class="image">
+                    <input src='<%= data.url%>' alt="Avatar" class="image" type="image">
                     <input type="hidden" name="data" value="<%=data.url%>">
-                    <button id="butt" type="submit">select</button>
                 </form>
             </div>
         </li>

@@ -21,7 +21,7 @@ app.use(methodOverride('_method'));
 app.use(express.static('./public'));
 
 app.get('/', handleIndex);
-app.get('/', handleGif);
+app.get('/gif', handleGif);
 
 
 
@@ -33,14 +33,13 @@ function handleGif(req, res) {
         q: req.query.gifSearch,
         limit: 9,
     };
-
     // console.log(queryStringParams);
     superagent.get(url)
         .query(queryStringParams)
         .then(results => {
             // console.log(results.body.data.original);
             let selection = results.body.data.map(gif => new Gifs(gif));
-            res.status(200).render('views/index', { gif: selection });
+            res.status(200).render('pages/partials/gifs', { meme: selection });
         });
 }
 
