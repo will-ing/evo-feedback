@@ -1,13 +1,15 @@
 <div class="newMain">
 
-    <% meme.forEach (data => { %>
+    <% gif.forEach (data => { %>
 
     <section>
         <li>
             <div class="container">
                 <form name="data" method="post" action="/save">
-                    <input src='<%= data.url%>' alt="Avatar" class="image" type="image">
+                    <input src='<%= data.url%>' alt="<%= data.title%>" class="image" type="image">
+                    <input type="hidden" name="name" value="<%=employee%>">
                     <input type="hidden" name="data" value="<%=data.url%>">
+                    <input type="hidden" name="keyword" value="<%=gifSearch%>">
                 </form>
             </div>
         </li>
@@ -15,4 +17,7 @@
     </section>
 
     <% }); %>
+
+
+
 </div>
